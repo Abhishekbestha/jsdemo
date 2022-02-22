@@ -96,13 +96,13 @@ function getFolderContextMenu($node, tree) {
                 var parent = $node.parent;
                 console.log(parent);
 
-                // console.log($node.Date)
-                // console.log($node.a_attr.type);
-                // var currentdate = new Date();
-                // var datetime = "Date" + currentdate.getDate() + "/" + (currentdate.getMonth() + 1)
-                //     + "/" + currentdate.getFullYear() + "\n" + " Time " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-                // // alert(datetime + "\n" + "FILE TYPE:" + $node.a_attr.type);
-                // alert($node.CreatedTime[0]);
+                console.log($node.Date)
+                console.log($node.a_attr.type);
+                var currentdate = new Date();
+                var datetime = "Date" + currentdate.getDate() + "/" + (currentdate.getMonth() + 1)
+                    + "/" + currentdate.getFullYear() + "\n" + " Time " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+                alert(datetime + "\n" + "FILE TYPE:" + $node.a_attr.type);
+                alert($node.CreatedTime[0]);
 
 
 
