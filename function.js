@@ -9,7 +9,7 @@ $(function () {
     for (i = 1; i <= 10; i++) {
         id1 = "rParent" + i
         id2 = "#"
-        id3 = "Node" + i;
+        id3 = "Orginization Unit" + i;
         elem = { "id": id1, "parent": id2, "text": id3, icon: 'glyphicon glyphicon-folder-open', "a_attr": { type: 'folder' } }
         var root = jsondata.push(elem);
     }
