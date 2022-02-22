@@ -1,7 +1,7 @@
 $(function () {
 
     var jsondata = [
-        { "id": "ajson1", "parent": "#", "text": "Simple root node", icon: 'glyphicon glyphicon-folder-open', "a_attr": { type: 'folder' } },
+        { "id": "ajson1", "parent": "#", "text": "Organization Unit", icon: 'glyphicon glyphicon-folder-open', "a_attr": { type: 'folder' } },
         //    { "id": "ajson2", "parent": "#", "text": "Root node 2", icon: 'glyphicon glyphicon-folder-open', "a_attr": {type:'folder'} },
         //    { "id": "ajson3", "parent": "ajson2", "text": "Child 1", icon: 'glyphicon glyphicon-folder-open', "a_attr": {type:'folder'} },
         //    { "id": "ajson4", "parent": "ajson2", "text": "Child 2", icon: 'glyphicon glyphicon-folder-open', "a_attr": {type:'folder'} },
@@ -9,7 +9,7 @@ $(function () {
     for (i = 1; i <= 10; i++) {
         id1 = "rParent" + i
         id2 = "#"
-        id3 = "Orginization Unit" + i;
+        id3 = "node" + i;
         elem = { "id": id1, "parent": id2, "text": id3, icon: 'glyphicon glyphicon-folder-open', "a_attr": { type: 'folder' } }
         var root = jsondata.push(elem);
     }
