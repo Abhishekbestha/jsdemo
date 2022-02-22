@@ -137,9 +137,9 @@ function getFileContextMenu($node, tree) {
             "action": function (obj) {
                 console.log($node.a_attr.type);
                 var currentdate = new Date();
-                var datetime = "Date" + currentdate.getDate() + "/" + (currentdate.getMonth() + 1)
-                    + "/" + currentdate.getFullYear() + "\n" + " Time " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-                alert(datetime + "\n" + "FILE TYPE:" + $node.a_attr.type);
+                var datetime = "Date:- " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1)
+                    + "/" + currentdate.getFullYear() + "\n" + " Time:- " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+                alert(datetime + "\n" + "FILE TYPE: " + $node.a_attr.type);
 
 
             }
