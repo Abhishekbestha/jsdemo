@@ -45,7 +45,7 @@ function getFolderContextMenu($node, tree) {
                         var createdNode = tree.get_node($node);
                         // console.log(createdNode)
 
-                        createdNode.CreatedTime = new Date.toString();
+                        createdNode.CreatedTime = new Date().toString();
                        console.log(createdNode.CreatedTime)
                         
                     }
