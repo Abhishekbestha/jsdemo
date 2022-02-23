@@ -12,12 +12,11 @@ $(function () {
         id3 = "Node" + i;
         elem = { "id": id1, "parent": id2, "text": id3, icon: 'glyphicon glyphicon-folder-open', "a_attr": { type: 'folder' } }
         var root = jsondata.push(elem);
-        // var createdNode = tree.get_node(id1);
-        // createdNode.CreatedTime = new Date();
+
     }
 
     createJSTree(jsondata);
-    
+
 
 });
 
@@ -36,21 +35,19 @@ function getFolderContextMenu($node, tree) {
                     "seperator_after": false,
                     "label": "File",
                     action: function (obj) {
-
-                        // $node.CreatedTime = new Date();
-                        // console.log($node);
-
                         $node = tree.create_node($node, { date: new Date(), text: 'New File', icon: 'glyphicon glyphicon-file', a_attr: { type: 'file' } });
                         tree.deselect_all();
-                        console.log($node);
+                        // console.log($node);
                         tree.select_node($node);
                         tree.edit($node);
+                        
 
                         var createdNode = tree.get_node($node);
+                        // console.log(createdNode)
 
-                        createdNode.CreatedTime = new Date().toString();
-                        console.log(createdNode);
-
+                        createdNode.CreatedTime = new Date.toString();
+                       console.log(createdNode.CreatedTime)
+                        
                     }
                 },
                 "Folder": {
@@ -58,10 +55,7 @@ function getFolderContextMenu($node, tree) {
                     "seperator_after": false,
                     "label": "Folder",
                     action: function (obj) {
-
                         console.log($node.id);
-                        //    var node = $('#tree').jstree(true).get_node("some_node_id");
-                        //    console.log(node);
                         $node = tree.create_node($node, { text: 'New Folder', icon: 'glyphicon glyphicon-folder-open', a_attr: { type: 'folder' } });
 
                         tree.deselect_all();
@@ -82,10 +76,12 @@ function getFolderContextMenu($node, tree) {
             "label": "Rename",
             "action": function (obj) {
                 tree.edit($node);
-                // var renamedNode = tree.get_node($node.id);
-                // renamedNode.CreatedTime = new Date().toString();
-                // console.log(renamedNode.CreatedTime)
-            
+                var renamedNode = tree.get_node($node.id);
+                if (renamedNode.ModifiedTime === undefined) {
+                    renamedNode.ModifiedTime = new Date().toString();
+                } else {
+                    renamedNode.ModifiedTime = new Date().toString();
+                }
             }
         },
         "Remove": {
@@ -103,8 +99,13 @@ function getFolderContextMenu($node, tree) {
             "action": function (obj) {
                 var id = $node.id;
                 console.log("node id :" + id);
+
                 var nodeCreatedDate = tree.get_node(id);
-                alert("Created Time : "+nodeCreatedDate.CreatedTime +"\n"+"Type : "+ $node.a_attr.type+ "\n" );
+                if (nodeCreatedDate.ModifiedTime === undefined) {
+                    alert("Created time :" + nodeCreatedDate.CreatedTime + "\nType: " + $node.a_attr.type);
+                } else {
+                    alert("Created Time :" + nodeCreatedDate.CreatedTime + "\n Modified Date :" + nodeCreatedDate.ModifiedTime + "\nType: " + $node.a_attr.type);
+                }
 
             }
         }
@@ -120,8 +121,12 @@ function getFileContextMenu($node, tree) {
             "label": "Rename",
             "action": function (obj) {
                 tree.edit($node);
-                // var renamedNode = tree.get_node($node.id);
-                // renamedNode.CreatedTime = new Date().toString();
+                var renamedNode = tree.get_node($node.id);
+                if (renamedNode.ModifiedTime === undefined) {
+                    renamedNode.ModifiedTime = new Date().toString();
+                } else {
+                    renamedNode.ModifiedTime = new Date().toString();
+                }
             }
         },
         "Remove": {
@@ -139,8 +144,13 @@ function getFileContextMenu($node, tree) {
             "action": function (obj) {
                 var id = $node.id;
                 console.log("node id :" + id);
+
                 var nodeCreatedDate = tree.get_node(id);
-                alert("Created Time : "+nodeCreatedDate.CreatedTime +"\n"+"Type : "+ $node.a_attr.type);
+                if (nodeCreatedDate.ModifiedTime === undefined) {
+                    alert("Created time :" + nodeCreatedDate.CreatedTime + "\nType: " + $node.a_attr.type);
+                } else {
+                    alert("Created Time :" + nodeCreatedDate.CreatedTime + "\n Modified Date :" + nodeCreatedDate.ModifiedTime + "\nType: " + $node.a_attr.type);
+                }
 
 
             }
